@@ -1,0 +1,31 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "CollectibleItem.h"
+
+// Sets default values
+ACollectibleItem::ACollectibleItem()
+{
+ 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+
+	Tags.Add("Collectible");
+
+}
+
+// Called when the game starts or when spawned
+void ACollectibleItem::BeginPlay()
+{
+	Super::BeginPlay();
+
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Collectible Item %s has Spawned"), *ItemName));
+	UE_LOG(LogTemp, Display, TEXT("Collectible Item %s has Spawned"), *ItemName);
+}
+
+// Called every frame
+void ACollectibleItem::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+}
+
