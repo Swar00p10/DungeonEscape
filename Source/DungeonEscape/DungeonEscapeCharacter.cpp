@@ -59,6 +59,9 @@ void ADungeonEscapeCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 		// Looking/Aiming
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADungeonEscapeCharacter::LookInput);
 		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &ADungeonEscapeCharacter::LookInput);
+
+		//Interact
+		EnhancedInputComponent->BindAction(Interact, ETriggerEvent::Started, this, &ADungeonEscapeCharacter::Interacted);
 	}
 	else
 	{
@@ -117,4 +120,10 @@ void ADungeonEscapeCharacter::DoJumpEnd()
 {
 	// pass StopJumping to the character
 	StopJumping();
+}
+
+void ADungeonEscapeCharacter::Interacted()
+{
+	// To be implemented in Blueprint or subclass
+	UE_LOG(LogTemp, Display, TEXT("Interact is pressed"));
 }
