@@ -52,6 +52,13 @@ protected:
 	/** Interact Input Action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* Interact;
+
+	UPROPERTY(EditAnywhere, Category = "Collision Settings")
+	float ReachDistance = 200.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Collision Settings")
+
+	float InteractSphereRadius = 30.0f;
 	
 public:
 	ADungeonEscapeCharacter();

@@ -33,7 +33,7 @@ void ALock::BeginPlay()
 void ALock::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	//UE_LOG(LogTemp, Display, TEXT("Time is %f"), GetWorld()->TimeSeconds);
 }
 
 void ALock::SetIsKeyPlaced(bool NewIsKeyPlaced)

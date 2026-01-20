@@ -125,5 +125,11 @@ void ADungeonEscapeCharacter::DoJumpEnd()
 void ADungeonEscapeCharacter::Interacted()
 {
 	// To be implemented in Blueprint or subclass
-	UE_LOG(LogTemp, Display, TEXT("Interact is pressed"));
+	//UE_LOG(LogTemp, Display, TEXT("Interact is pressed"));
+	FVector Start = FirstPersonCameraComponent->GetComponentLocation(); // Camera location
+	FVector End = Start + (FirstPersonCameraComponent->GetForwardVector() * ReachDistance); // Extend forward vector by ReachDistance
+	DrawDebugLine(GetWorld(), Start, End, FColor::Green, true); // Draw a debug line to visualize the reach
+
+	FCollisionShape InteractSphere = FCollisionShape::MakeSphere(InteractSphereRadius);
+	DrawDebugSphere(GetWorld(), End, InteractSphereRadius, 12, FColor::Blue, false, 3.0f);
 }
