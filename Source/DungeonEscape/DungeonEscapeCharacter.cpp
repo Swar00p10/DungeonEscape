@@ -132,4 +132,13 @@ void ADungeonEscapeCharacter::Interacted()
 
 	FCollisionShape InteractSphere = FCollisionShape::MakeSphere(InteractSphereRadius);
 	DrawDebugSphere(GetWorld(), End, InteractSphereRadius, 12, FColor::Blue, false, 3.0f);
+
+	FHitResult HitResult;
+
+	if(GetWorld()->SweepSingleByChannel(HitResult, Start, End, FQuat::Identity, ECC_GameTraceChannel2, InteractSphere))
+	{
+		UE_LOG(LogTemp, Display, TEXT("Actor got hit is %s"), *HitResult.GetActor()->GetActorNameOrLabel());
+	}
+
+
 }
